@@ -12,5 +12,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizApp"
         tools:targetApi="31" />
+        <activity
+            android:name=".ShowChecked"
+            android:exported="false" />
+        <activity
+            android:name=".function"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity android:name=".Danh_Sach_De_Thi" />
+        <activity android:name=".De_So_1" />
+
+        <activity android:name=".Ket_Qua_Sau_Thi" />
+        <activity android:name=".lichSu.LichSu" />
+        <activity android:name=".lichSu.LichSuMau" />
 </manifest>
