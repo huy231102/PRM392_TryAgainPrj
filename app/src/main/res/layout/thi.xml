@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/aliceblue"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/stt"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="424dp"
+        android:layout_height="208dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="395dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stt"
+        app:layout_constraintVertical_bias="0.347">
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="197dp">
+
+            <RadioButton
+                android:id="@+id/rd1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/rd2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/rd3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/rd4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/noiDung"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="1dp"
+        android:gravity="left"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stt"
+        app:layout_constraintVertical_bias="0.279" />
+
+    <Button
+        android:id="@+id/click"
+        android:layout_width="143dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="104dp"
+        android:backgroundTint="#5DAF3B"
+        android:text="Tiếp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.804"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/click2"
+        android:layout_width="143dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="104dp"
+        android:backgroundTint="#5DAF3B"
+        android:text="Câu trước"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.237"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
