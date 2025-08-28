@@ -27,14 +27,12 @@ public class LichSuMau extends AppCompatActivity {
     ArrayList<ItemLichSu> arrayList;
     LichSuAdapter lichSuAdapter;
     DBHelper db;
-    TextView ic_exit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lich_su_thi);
         db = new DBHelper(this);
         context = this;
-        ic_exit =findViewById(R.id.ic_exit);
         listView = (ListView) findViewById(R.id.lv_lich_su);
         arrayList = new ArrayList<>();
         lichSuAdapter = new LichSuAdapter(this,arrayList,R.layout.item_lich_su);
@@ -46,15 +44,7 @@ public class LichSuMau extends AppCompatActivity {
             intent.putExtras(bundle);
             startActivity(intent);
         });
-ic_exit.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Intent intent = new Intent(LichSuMau.this, function.class);
-        startActivity(intent);
-
-    }
-});
-        Cursor cursor = db.getData("select * from story");
+        Cursor cursor = db.getData("select * from story ORDER BY timestamp DESC");
         while (cursor.moveToNext()){
             int id = cursor.getInt(0);
 
@@ -63,7 +53,13 @@ ic_exit.setOnClickListener(new View.OnClickListener() {
             String soCauDung =cursor.getString(2);
             String soCauSai = cursor.getString(3);
             String tongCau = cursor.getString(4);
-            arrayList.add(new ItemLichSu(id,tende,soCauDung,soCauSai,tongCau));
+            long timestamp = 0;
+            try {
+                timestamp = cursor.getLong(5);
+            } catch (Exception e) {
+                timestamp = 0;
+            }
+            arrayList.add(new ItemLichSu(id,tende,soCauDung,soCauSai,tongCau,timestamp));
         }
     }
 }

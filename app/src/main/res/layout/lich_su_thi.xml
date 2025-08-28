@@ -6,37 +6,25 @@
     android:layout_height="match_parent"
     android:background="@color/aliceblue"
     android:orientation="vertical">
-    <RelativeLayout
-        android:id="@+id/layout1"
+    
+    <!-- Nút xóa dữ liệu cũ để test -->
+    <ListView
+        android:id="@+id/lv_lich_su"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="#F0F8FF"
-        tools:ignore="MissingConstraints">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp" />
 
-        <TextView
-            android:id="@+id/ic_exit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:text="Exit"
-            android:textColor="@color/black"
-            android:textSize="18dp" />
-    </RelativeLayout>
-
-    <LinearLayout
+    <Button
+        android:id="@+id/btn_clear_data"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ListView
-            android:id="@+id/lv_lich_su"
-            android:layout_width="match_parent"
-            android:layout_height="644dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginBottom="1dp" />
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Xóa dữ liệu cũ"
+        android:background="@color/red"
+        android:textColor="@color/white" />
 
+    <!-- ListView tràn lên đầy màn hình, bỏ header trống -->
 
 </LinearLayout>

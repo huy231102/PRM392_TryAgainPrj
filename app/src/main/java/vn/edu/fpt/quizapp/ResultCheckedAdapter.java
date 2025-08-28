@@ -11,12 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.List;
-
-public class ResultCheckedAdapter extends ArrayAdapter<String> {
+import vn.edu.fpt.quizapp.ResultCheckedItem;
+public class ResultCheckedAdapter extends ArrayAdapter<ResultCheckedItem> {
     private Context context;
-    private List<String> resultCheckedList;
+    private List<ResultCheckedItem> resultCheckedList;
 
-    public ResultCheckedAdapter(Context context, List<String> resultCheckedList) {
+    public ResultCheckedAdapter(Context context, List<ResultCheckedItem> resultCheckedList) {
         super(context, 0, resultCheckedList);
         this.context = context;
         this.resultCheckedList = resultCheckedList;
@@ -27,13 +27,28 @@ public class ResultCheckedAdapter extends ArrayAdapter<String> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View view = convertView;
         if (view == null) {
-            view = LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_1, parent, false);
+            // Sử dụng item_result_checked layout
+            view = LayoutInflater.from(context).inflate(R.layout.item_result_checked, parent, false);
+        }
+        
+        TextView tvQuestion = view.findViewById(R.id.tv_question);
+        TextView tvSelected = view.findViewById(R.id.tv_selected_answer);
+        TextView tvCorrect = view.findViewById(R.id.tv_correct_answer);
+
+        // Kiểm tra null để tránh crash
+        if (tvQuestion == null || tvSelected == null || tvCorrect == null) {
+            System.out.println("One or more TextViews are null in adapter");
+            return view;
         }
 
-        String resultCheckedItem = resultCheckedList.get(position);
-
-        TextView textView = view.findViewById(android.R.id.text1);
-        textView.setText(resultCheckedItem);
+        if (position < resultCheckedList.size()) {
+            ResultCheckedItem item = resultCheckedList.get(position);
+            if (item != null) {
+                tvQuestion.setText("Câu " + item.getQuestionNum());
+                tvSelected.setText("Đáp án chọn: " + item.getSelectedAnswer());
+                tvCorrect.setText("Đáp án đúng: " + item.getCorrectAnswer());
+            }
+        }
 
         return view;
     }

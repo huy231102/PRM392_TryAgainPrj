@@ -24,25 +24,17 @@ public class Danh_Sach_De_Thi extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.thitracnghiem);
-        TextView ic_exit;
-        ic_exit = findViewById(R.id.ic_exit);
         listView = (ListView) findViewById(R.id.thitracnghiem);
         //de thi cung ko luu vao database luu vao ArrayList<> danh sach
         deThiArrayList = new ArrayList<>();
-        deThiArrayList.add(new Item_De_Thi(R.drawable.de_thi, "Đề số 1"));
-        deThiArrayList.add(new Item_De_Thi(R.drawable.de_thi, "Đề số 2"));
-        deThiArrayList.add(new Item_De_Thi(R.drawable.de_thi, "Đề số 3"));
+        // Thiết lập danh sách bộ đề với tên chính xác
+        String[] setNames = {"Lập trình Mobile App", "Lập trình OOP", "Toán xác suất"};
+        for (int idx = 0; idx < setNames.length; idx++) {
+            deThiArrayList.add(new Item_De_Thi(R.drawable.de_thi, setNames[idx]));
+        }
         adapterDeThi = new Adapter_De_Thi(this, deThiArrayList, R.layout.item_thi);
         listView.setAdapter(adapterDeThi);
 
-        ic_exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Danh_Sach_De_Thi.this, function.class);
-                startActivity(intent);
-
-            }
-        });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

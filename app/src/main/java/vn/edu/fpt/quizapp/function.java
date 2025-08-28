@@ -30,10 +30,12 @@ public class function extends AppCompatActivity {
         xemlichsu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), ShowChecked.class));
-
+                // Chuyển sang màn danh sách lịch sử các lần thi
+                startActivity(new Intent(getApplicationContext(), vn.edu.fpt.quizapp.lichSu.LichSu.class));
             }
         });
+
+        // Đã bỏ nút xem bài lưu
 
 
     }
